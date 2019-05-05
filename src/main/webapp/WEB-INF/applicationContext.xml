@@ -28,11 +28,29 @@
      http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
      http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring.xsd">
 
-   <!-- in-memory database and a datasource -->
-    <jdbc:embedded-database id="dataSource">
+
+    <!--<jdbc:embedded-database id="dataSource">
         <jdbc:script location="classpath:database/jpetstore-hsqldb-schema.sql"/>
         <jdbc:script location="classpath:database/jpetstore-hsqldb-dataload.sql"/>
-    </jdbc:embedded-database>
+    </jdbc:embedded-database>-->
+
+    <bean
+        id="dataSource"
+        class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName">
+            <value>com.mysql.cj.jdbc.Driver</value>
+        </property>
+        <property name="url">
+            <value>jdbc:mysql://mysql:3306/jpetstore</value>
+        </property>
+        <property name="username">
+            <value>root</value>
+        </property>
+        <property name="password">
+            <value>aaaabbbb</value>
+        </property>
+    </bean>
+
 
     <!-- transaction manager, use DataSourceTransactionManager" for JDBC local tx -->
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">

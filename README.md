@@ -83,3 +83,11 @@ rocketcity/robotframework-docker
 ```
 pybot -d target -x target/xunit.xml -v SERVER:192.168.9.10:9292 src/test
 ```
+
+此程序的数据库连接:
+```
+src/main/webapp/WEB-INF/applicationContext.xml 里,搜索dataSource,由driverClassName,url,username,
+password这些指定,需要在程序运行(ci/cd)前创建对应数据库并手动依次导入:
+src/main/resources/database/ 下面的jpetstore-hsqldb-schema.sql和jpetstore-hsqldb-dataload.sql
+同时注意授权访问账户和权限
+```

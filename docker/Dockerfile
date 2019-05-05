@@ -14,7 +14,7 @@
 #    limitations under the License.
 #
 
-FROM tomcat:7.0
+FROM tomcat:8.5
 
 ADD jpetstore.war /usr/local/tomcat/webapps/
 
